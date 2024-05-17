@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Mark Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p class="title">INTERNAL MARK CALCULATOR</p>
+    <div class="content_box">
+        <div>
+            <p class="sub_heading">SEM 2</p>
+            <p class="notice"> (*Note : Enter the mark without 1.5)</p>
+            <div class="mark">
+                <p>marks scored in m1 :</p>
+                <input type="number" placeholder="enter your mark" id="m1_mark">
+            </div>
+            <div class="mark">
+                <p>marks scored in m2 :</p>
+                <input type="number" placeholder="enter your mark" id="m2_mark">
+            </div>
+            <div class="mark">
+                <p>marks scored in m3 :</p>
+                <input type="number" placeholder="enter your mark" id="m3_mark">
+            </div>
+            <div class="extra_act">
+                <p>skillrack 50 bronze : </p>
+                <input type="checkbox" id="skill_done">
+                <p>Done</p>
+                <input type="checkbox" id="skill_not_done">
+                <p>Not Done</p>
+            </div>
+            <div class="extra_act">
+                <p>Online Course : </p>
+                <input type="checkbox" id="extra_done">
+                <p>Done</p>
+                <input type="checkbox" id="extra_not_done">
+                <p>Not Done</p>
+            </div>
+            <button class="cal_button" id="calculate">Calculate</button>
+            
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

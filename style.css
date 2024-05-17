@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #05445E;
+    font-family:Poppins;
+}
+.title{
+    font-size: 3rem;
+    color: white;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.content_box{
+    
+    box-shadow: none;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content_box div{
+    background-color: #D4F1F4;
+    padding: 10px;
+}
+.mark,.extra_act{
+    color: #05445E;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.extra_act{
+    justify-content: space-around;
+}
+input{
+    margin: 5px;
+    padding: 5px;
+}
+
+.cal_button{
+    padding: 10px;
+    background-color: #189AB4;
+    color: #05445E;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    margin-left: 120px;
+    border-radius: 3px;
+    transition: opacity 1s;
+}
+
+.sub_heading{
+    text-align: center; 
+    font-size: 2rem; 
+    color: #05445E;
+}
+.notice{
+    font-size: 1rem; 
+    text-align: justify; 
+    color: #05445E;
+}
