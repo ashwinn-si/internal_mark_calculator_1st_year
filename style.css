@@ -39,7 +39,12 @@ input{
     margin: 5px;
     padding: 5px;
 }
-
+.cal_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
 .cal_button{
     padding: 10px;
     background-color: #189AB4;
@@ -47,7 +52,6 @@ input{
     border: none;
     font-size: 18px;
     text-align: center;
-    margin-left: 150px;
     border-radius: 3px;
     transition: opacity 1s;
 }
