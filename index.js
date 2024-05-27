@@ -11,7 +11,7 @@ document.getElementById("calculate").onclick = function() {
         return;
     }
 
-    let internal_mark = (((m1_mark * 1.5) + (m2_mark * 1.5)) * 0.075) + ((m3_mark * 1.5) * 0.15);
+    let internal_mark = Math.floor((((m1_mark * 1.5) + (m2_mark * 1.5)) * 0.075) + ((m3_mark * 1.5) * 0.15));
     if(internal_mark>=30){
         internal_mark=30;
     }
