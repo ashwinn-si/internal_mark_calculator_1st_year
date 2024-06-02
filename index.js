@@ -10,7 +10,7 @@ function main() { // main fucntion
     let internal_mark=internal_mark_calculation(m1_mark,m2_mark,m3_mark);
     internal_mark=extra_criteria(internal_mark)
     let external_mark=external_mark_calculation(internal_mark);
-    alert("YOU MUST SCORE " + external_mark + " IN EXTERNAL EXAM TO PASS OUT OF 100\nINTERNAL MARK : "+internal_mark+" OUTOFF 40");//displaying the output
+    display_result(internal_mark,external_mark);//displaying result
 };
 function exception_condition_checker(m1_mark,m2_mark,m3_mark){ // checks for double clicks or some eror inputs
     if ((skill_done.checked && skill_not_done.checked) || 
@@ -47,4 +47,17 @@ function external_mark_calculation(internal_mark){ //calcualtes the external mar
         external_mark = external_mark - (internal_mark * 2);
     }
     return external_mark;
+}
+function display_result(internal_mark, external_mark) {
+    alert("YOU MUST SCORE " + external_mark + " IN EXTERNAL EXAM TO PASS OUT OF 100\nINTERNAL MARK : "+internal_mark+" OUTOFF 40");
+    const internal = document.getElementById("internal_publish");
+    const external = document.getElementById("external_publish");
+    internal.classList.add("internal_mark_publisher");
+    external.classList.add("external_mark_publisher");
+    internal.innerHTML = "Internal Mark : " + internal_mark+" / 40";
+    external.innerHTML = "External Mark : " + external_mark+"(TO PASS)";
+    document.querySelector(".cr_1").innerHTML = "";
+    document.querySelector(".cr_2").innerHTML = "";
+    document.querySelector(".cr_3").innerHTML = "CREATED BY : ASHWIN SI 1ST YEAR (CSE-A)";
+    document.querySelector(".cr_4").innerHTML = "insta : _ashwin_si";
 }
