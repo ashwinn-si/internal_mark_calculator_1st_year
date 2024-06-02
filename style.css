@@ -79,10 +79,6 @@ input{
     display: inline-block;
     background-color: #05445E;
     text-align: center;
-    margin: 2px;
+    
     border-radius: 4px;
-}
-.internal_mark_publisher{
-    margin-bottom: 0px;
-    margin-top: 0px;
 }
