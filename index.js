@@ -1,9 +1,18 @@
-document.getElementById("calculate").onclick = function() {
-    let m1_mark = parseFloat(document.getElementById("m1_mark").value);
-    let m2_mark = parseFloat(document.getElementById("m2_mark").value);
-    let m3_mark = parseFloat(document.getElementById("m3_mark").value);
-
-
+function main() { // main fucntion 
+    let m1_mark = Number(document.getElementById("m1_mark").value);
+    let m2_mark = Number(document.getElementById("m2_mark").value);
+    let m3_mark = Number(document.getElementById("m3_mark").value);
+    console.log("hi")
+    if(exception_condition_checker(m1_mark,m2_mark,m3_mark)){
+        alert("Wrong input try again !!!");//displays wrong input
+        return;
+    }
+    let internal_mark=internal_mark_calculation(m1_mark,m2_mark,m3_mark);
+    internal_mark=extra_criteria(internal_mark)
+    let external_mark=external_mark_calculation(internal_mark);
+    alert("YOU MUST SCORE " + external_mark + " IN EXTERNAL EXAM TO PASS OUT OF 100\nINTERNAL MARK : "+internal_mark+" OUTOFF 40");//displaying the output
+};
+function exception_condition_checker(m1_mark,m2_mark,m3_mark){ // checks for double clicks or some eror inputs
     if ((skill_done.checked && skill_not_done.checked) || 
         (extra_done.checked && extra_not_done.checked) || 
         (m1_mark > 100 || m2_mark > 100 || m3_mark > 100)) {
@@ -37,6 +46,5 @@ function external_mark_calculation(internal_mark){ //calcualtes the external mar
     } else {
         external_mark = external_mark - (internal_mark * 2);
     }
-
-    alert("YOU MUST SCORE " + external_mark + " IN EXTERNAL EXAM TO PASS OUT OF 100\nINTERNAL MARK : "+internal_mark+" OUTOFF 40");
-};
+    return external_mark;
+}
