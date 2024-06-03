@@ -7,21 +7,29 @@ function main() { // main fucntion
         alert("Wrong input try again !!!");//displays wrong input
         return;
     }
-    let internal_mark=internal_mark_calculation(m1_mark,m2_mark,m3_mark);
+    const bonus_mark=bonus_mark_checker()
+    let internal_mark=internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus_mark);
     internal_mark=extra_criteria(internal_mark)
     let external_mark=external_mark_calculation(internal_mark);
     display_result(internal_mark,external_mark);//displaying result
 };
+function bonus_mark_checker(){
+    if(with_bonus.checked){
+        return 1.5;
+    }else{
+        return 1;
+    }
+}
 function exception_condition_checker(m1_mark,m2_mark,m3_mark){ // checks for double clicks or some eror inputs
     if ((skill_done.checked && skill_not_done.checked) || 
         (extra_done.checked && extra_not_done.checked) || 
-        (m1_mark > 100 || m2_mark > 100 || m3_mark > 100)) {
+        (m1_mark > 100 || m2_mark > 100 || m3_mark > 100)||(with_bonus.checked && without_bonus.checked)) {
         return true;
     }
 }
 
-function internal_mark_calculation(m1_mark,m2_mark,m3_mark){
-    let internal_mark = Math.floor((((m1_mark * 1.5) + (m2_mark * 1.5)) * 0.075) + ((m3_mark * 1.5) * 0.15)); 
+function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus){
+    let internal_mark = Math.floor((((m1_mark * bonus) + (m2_mark * bonus)) * 0.075) + ((m3_mark * bonus) * 0.15)); 
     if(internal_mark>=30){// one more condition checker to avoid errors
         internal_mark=30;
     }
