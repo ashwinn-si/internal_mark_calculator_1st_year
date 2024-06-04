@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <p class="title">INTERNAL MARK CALCULATOR</p>
     <div class="content_box">
@@ -48,20 +50,26 @@
             <div class="cal_container">
                 <button class="cal_button" id="calculate" onclick="main()">Calculate</button>
             </div>
-            <p style="font-size: 13px;text-align: center; margin: 2px;" class="cr_1">CREATED BY : ASHWIN SI 1ST YEAR (CSE-A)</p>
+            <p style="font-size: 13px;text-align: center; margin: 2px;" class="cr_1">CREATED BY : ASHWIN SI 1ST YEAR
+                (CSE-A)</p>
             <p style="text-align: center; font-size: 12px;" class="cr_2">insta : _ashwin_si</p>
-            <div class="result_container">
-                <p id="internal_publish"><p>
-            </div>
-            <div class="result_container">
-                <p id="external_publish"></p>
+            <div id="result_container">
+                <div id="res_divs">
+                    <p id="first_15"></p>
+                    <p id="second_15"></p>
+                    <p id="extra_critea_1"></p>
+                    <p id="extra_critea_2"></p>
+                    <p id="internal_publish"></p>
+                    <p id="external_publish"></p>
+                </div>
             </div>
             <p style="font-size: 13px;text-align: center; margin: 2px;" class="cr_3"></p>
             <p style="text-align: center; font-size: 12px;" class="cr_4"></p>
-            
+
         </div>
     </div>
 
     <script src="index.js"></script>
 </body>
+
 </html>

@@ -2,7 +2,6 @@ function main() { // main fucntion
     let m1_mark = Number(document.getElementById("m1_mark").value);
     let m2_mark = Number(document.getElementById("m2_mark").value);
     let m3_mark = Number(document.getElementById("m3_mark").value);
-    console.log("hi")
     if(exception_condition_checker(m1_mark,m2_mark,m3_mark)){
         alert("Wrong input try again !!!");//displays wrong input
         return;
@@ -11,20 +10,30 @@ function main() { // main fucntion
     let internal_mark=internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus_mark);
     internal_mark=extra_criteria(internal_mark)
     let external_mark=external_mark_calculation(internal_mark);
-    display_result(internal_mark,external_mark);//displaying result
+    let first_15=first_15_calculator(m1_mark,m2_mark,bonus_mark);
+    let second_15=second_15_calculator(m3_mark,bonus_mark);
+    let extra_1=extra_1_calculator();
+    let extra_2=extra_2_calculator(m1_mark,m2_mark,m3_mark);
+    console.log(internal_mark)
+    display_result(internal_mark,external_mark,first_15,second_15,extra_1,extra_2);//displaying result
 };
-function bonus_mark_checker(){
-    if(with_bonus.checked){
-        return 1.5;
-    }else{
-        return 1;
-    }
-}
+
 function exception_condition_checker(m1_mark,m2_mark,m3_mark){ // checks for double clicks or some eror inputs
     if ((skill_done.checked && skill_not_done.checked) || 
         (extra_done.checked && extra_not_done.checked) || 
         (m1_mark > 100 || m2_mark > 100 || m3_mark > 100)||(with_bonus.checked && without_bonus.checked)) {
         return true;
+    }
+}
+
+
+//calculation part
+
+function bonus_mark_checker(){
+    if(with_bonus.checked){
+        return 1.5;
+    }else{
+        return 1;
     }
 }
 
@@ -46,6 +55,7 @@ function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus){
     }
     return internal_mark;
 }
+
 function extra_criteria(internal_mark){ // checks for extra criteria
     if (skill_done.checked) {
         internal_mark += 2.5;
@@ -53,8 +63,9 @@ function extra_criteria(internal_mark){ // checks for extra criteria
     if (extra_done.checked) {
         internal_mark += 2.5;
     }
-    return internal_mark
+    return internal_mark;
 }
+
 function external_mark_calculation(internal_mark){ //calcualtes the external mark
     let external_mark = 91;
     if (internal_mark >= 23) {
@@ -64,14 +75,56 @@ function external_mark_calculation(internal_mark){ //calcualtes the external mar
     }
     return external_mark;
 }
-function display_result(internal_mark, external_mark) {
-    alert("YOU MUST SCORE " + external_mark + " IN EXTERNAL EXAM TO PASS OUT OF 100\nINTERNAL MARK : "+internal_mark+" OUTOFF 40");
-    const internal = document.getElementById("internal_publish");
-    const external = document.getElementById("external_publish");
-    internal.classList.add("internal_mark_publisher");
-    external.classList.add("external_mark_publisher");
-    internal.innerHTML = "Internal Mark : " + internal_mark+" / 40";
-    external.innerHTML = "External Mark : " + external_mark+"(TO PASS)";
+
+
+// displaying function
+
+function first_15_calculator(m1_mark,m2_mark,bonus){
+    let first_15_m=(((m1_mark * bonus) + (m2_mark * bonus)) * 0.075);
+    if(first_15_m>=15){
+        first_15_m=15;
+    }
+    return Math.floor(first_15_m);
+}
+
+function second_15_calculator(m3_mark,bonus){
+    let second_15_m=((m3_mark * bonus) * 0.15);
+    if(second_15_m>=15){
+        second_15_m=15;
+    }
+    return Math.floor(second_15_m);
+}
+
+function extra_1_calculator(){
+    res=0;
+    if(skill_done.checked){
+        res+=2.5;
+    }
+    if(extra_done.checked){
+        res+=2.5;
+    }
+    return res;
+}
+function extra_2_calculator(m1_mark,m2_mark,m3_mark){
+    if(m1_mark+m2_mark+m3_mark >=135){
+        return 5;
+    }else{
+        return 0;
+    }
+}
+
+//output function
+
+function display_result(internal_mark, external_mark,first_15,second_15,extra_1,extra_2) { 
+    alert("YOU MUST SCORE " + external_mark + " IN EXTERNAL EXAM TO PASS OUT OF 100\nINTERNAL MARK : " + internal_mark + " OUT OF 40");
+    document.getElementById("result_container").classList.add("result_container");
+    document.getElementById("res_divs").classList.add("res_divss");
+    document.getElementById("first_15").innerHTML = "Model 1 & Model 2 : " + first_15 + " / 15";
+    document.getElementById("second_15").innerHTML = "Model 3 : " + second_15 + " / 15";
+    document.getElementById("extra_critea_1").innerHTML = "Skillrack & Certificate : " + extra_1 + " / 5";
+    document.getElementById("extra_critea_2").innerHTML = "Above 135 : " + extra_2 + " / 5";
+    document.getElementById("internal_publish").innerHTML = "Internal Mark : " + internal_mark + " / 40";
+    document.getElementById("external_publish").innerHTML = "External Mark : " + external_mark + " (TO PASS)";
     document.querySelector(".cr_1").innerHTML = "";
     document.querySelector(".cr_2").innerHTML = "";
     document.querySelector(".cr_3").innerHTML = "CREATED BY : ASHWIN SI 1ST YEAR (CSE-A)";

@@ -74,16 +74,21 @@ input{
     color: #05445E;
 }
 .result_container {
+    font-size: 1.2rem;
+    color:#D4F1F4;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.internal_mark_publisher,.external_mark_publisher{
-    color: #D4F1F4;
+.result_container div{
+    padding: 20px;
+    background-color: #05445E;
+}
+.res_1{
+    color:#D4F1F4;
     padding: 5px;
-    justify-content: center;
-    align-items: center;
-    display: inline-block;
+    
+   
     background-color: #05445E;
     text-align: center;
     
