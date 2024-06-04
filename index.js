@@ -33,7 +33,7 @@ function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus){
     if(internal_mark>=30){// one more condition checker to avoid errors
         internal_mark=30;
     }
-    if (m1_mark + m2_mark + m3_mark >= 120) {
+    if (m1_mark + m2_mark + m3_mark >= 135) {
         internal_mark += 5;
     }
     return internal_mark;

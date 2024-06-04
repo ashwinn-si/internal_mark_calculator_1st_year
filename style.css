@@ -26,6 +26,8 @@ body{
     padding: 10px;
 }
 .bonus_mark{
+    color: #05445E;
+    font-weight: bold;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
