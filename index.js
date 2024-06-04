@@ -29,7 +29,15 @@ function exception_condition_checker(m1_mark,m2_mark,m3_mark){ // checks for dou
 }
 
 function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus){
-    let internal_mark = Math.floor((((m1_mark * bonus) + (m2_mark * bonus)) * 0.075) + ((m3_mark * bonus) * 0.15)); 
+    let first_15_m=(((m1_mark * bonus) + (m2_mark * bonus)) * 0.075); //bug 1 restored
+    let second_15_m=((m3_mark * bonus) * 0.15);
+    if(first_15_m>=15){
+        first_15_m=15;
+    }
+    if(second_15_m>=15){
+        second_15_m=15;
+    }
+    let internal_mark=Math.floor(first_15_m+second_15_m);
     if(internal_mark>=30){// one more condition checker to avoid errors
         internal_mark=30;
     }
