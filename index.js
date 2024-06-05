@@ -2,8 +2,12 @@ function main() { // main fucntion
     let m1_mark = Number(document.getElementById("m1_mark").value);
     let m2_mark = Number(document.getElementById("m2_mark").value);
     let m3_mark = Number(document.getElementById("m3_mark").value);
-    if(exception_condition_checker(m1_mark,m2_mark,m3_mark)){
+    let excep_check=exception_condition_checker(m1_mark,m2_mark,m3_mark);
+    if(excep_check==1){
         alert("Wrong input try again !!!");//displays wrong input
+        return;
+    }else if(excep_check==2){
+        alert("Input missing!!!");//if the required fields are not choiced
         return;
     }
     const bonus_mark=bonus_mark_checker()
@@ -21,7 +25,12 @@ function exception_condition_checker(m1_mark,m2_mark,m3_mark){ // checks for dou
     if ((skill_done.checked && skill_not_done.checked) || 
         (extra_done.checked && extra_not_done.checked) || 
         (m1_mark > 100 || m2_mark > 100 || m3_mark > 100)||(with_bonus.checked && without_bonus.checked)) {
-        return true;
+        return 1;
+    }
+    else if((!skill_done.checked && !skill_not_done.checked) || 
+    (!extra_done.checked && !extra_not_done.checked)
+    ||(!with_bonus.checked && !without_bonus.checked)){
+        return 2;
     }
 }
 
@@ -45,14 +54,15 @@ function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus){
     if(second_15_m>=15){
         second_15_m=15;
     }
-    let internal_mark=Math.floor(first_15_m+second_15_m);// using math.floor to floor off value
+    let internal_mark=(first_15_m+second_15_m);
     if(internal_mark>=30){// one more condition checker to avoid errors
         internal_mark=30;
     }
     if (m1_mark + m2_mark + m3_mark >= 100) {
         internal_mark += 5;
     }
-    return Math.floor(internal_mark);
+
+    return parseFloat(internal_mark.toFixed(2));
 }
 
 function extra_criteria(internal_mark){ // checks for extra criteria
@@ -70,7 +80,7 @@ function external_mark_calculation(internal_mark){ //calcualtes the external mar
     if (internal_mark >= 23) {
         external_mark = 45;
     } else {
-        external_mark = external_mark - (internal_mark * 2);
+        external_mark = external_mark - (Number(internal_mark) * 2);
     }
     return Math.floor(external_mark);
 }
@@ -83,7 +93,9 @@ function first_15_calculator(m1_mark,m2_mark,bonus){
     if(first_15_m>=15){
         first_15_m=15;
     }
-    return Math.floor(first_15_m);
+    let res= (first_15_m).toFixed(2);
+    console.log(res);
+    return res;
 }
 
 function second_15_calculator(m3_mark,bonus){
@@ -91,7 +103,9 @@ function second_15_calculator(m3_mark,bonus){
     if(second_15_m>=15){
         second_15_m=15;
     }
-    return Math.floor(second_15_m);
+    let res=second_15_m.toFixed(2);
+    console.log(res);
+    return res;
 }
 
 function extra_1_calculator(){
