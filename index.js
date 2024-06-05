@@ -50,7 +50,7 @@ function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus){
     if(internal_mark>=30){// one more condition checker to avoid errors
         internal_mark=30;
     }
-    if (m1_mark + m2_mark + m3_mark >= 135) {
+    if (m1_mark + m2_mark + m3_mark >= 100) {
         internal_mark += 5;
     }
     return internal_mark;
@@ -106,7 +106,7 @@ function extra_1_calculator(){
     return res;
 }
 function extra_2_calculator(m1_mark,m2_mark,m3_mark){
-    if(m1_mark+m2_mark+m3_mark >=135){
+    if(m1_mark+m2_mark+m3_mark >=100){
         return 5;
     }else{
         return 0;
@@ -122,7 +122,7 @@ function display_result(internal_mark, external_mark,first_15,second_15,extra_1,
     document.getElementById("first_15").innerHTML = "Model 1 & Model 2 : " + first_15 + " / 15";
     document.getElementById("second_15").innerHTML = "Model 3 : " + second_15 + " / 15";
     document.getElementById("extra_critea_1").innerHTML = "Skillrack & Certificate : " + extra_1 + " / 5";
-    document.getElementById("extra_critea_2").innerHTML = "Above 135 : " + extra_2 + " / 5";
+    document.getElementById("extra_critea_2").innerHTML = "Above 100 : " + extra_2 + " / 5";
     document.getElementById("internal_publish").innerHTML = "Internal Mark : " + internal_mark + " / 40";
     document.getElementById("external_publish").innerHTML = "External Mark : " + external_mark + " (TO PASS)";
     document.querySelector(".cr_1").innerHTML = "";
