@@ -46,7 +46,7 @@ function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus){
     if(second_15_m>=15){
         second_15_m=15;
     }
-    let internal_mark=Math.floor(first_15_m+second_15_m);
+    let internal_mark=Math.round(first_15_m+second_15_m);// using math.round to round off value
     if(internal_mark>=30){// one more condition checker to avoid errors
         internal_mark=30;
     }
@@ -84,7 +84,7 @@ function first_15_calculator(m1_mark,m2_mark,bonus){
     if(first_15_m>=15){
         first_15_m=15;
     }
-    return Math.floor(first_15_m);
+    return Math.round(first_15_m);
 }
 
 function second_15_calculator(m3_mark,bonus){
@@ -92,7 +92,7 @@ function second_15_calculator(m3_mark,bonus){
     if(second_15_m>=15){
         second_15_m=15;
     }
-    return Math.floor(second_15_m);
+    return Math.round(second_15_m);
 }
 
 function extra_1_calculator(){
