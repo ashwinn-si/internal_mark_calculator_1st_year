@@ -14,7 +14,6 @@ function main() { // main fucntion
     let second_15=second_15_calculator(m3_mark,bonus_mark);
     let extra_1=extra_1_calculator();
     let extra_2=extra_2_calculator(m1_mark,m2_mark,m3_mark);
-    console.log(internal_mark)
     display_result(internal_mark,external_mark,first_15,second_15,extra_1,extra_2);//displaying result
 };
 
@@ -46,14 +45,14 @@ function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus){
     if(second_15_m>=15){
         second_15_m=15;
     }
-    let internal_mark=Math.round(first_15_m+second_15_m);// using math.round to round off value
+    let internal_mark=Math.floor(first_15_m+second_15_m);// using math.floor to floor off value
     if(internal_mark>=30){// one more condition checker to avoid errors
         internal_mark=30;
     }
     if (m1_mark + m2_mark + m3_mark >= 100) {
         internal_mark += 5;
     }
-    return internal_mark;
+    return Math.floor(internal_mark);
 }
 
 function extra_criteria(internal_mark){ // checks for extra criteria
@@ -73,7 +72,7 @@ function external_mark_calculation(internal_mark){ //calcualtes the external mar
     } else {
         external_mark = external_mark - (internal_mark * 2);
     }
-    return external_mark;
+    return Math.floor(external_mark);
 }
 
 
@@ -84,7 +83,7 @@ function first_15_calculator(m1_mark,m2_mark,bonus){
     if(first_15_m>=15){
         first_15_m=15;
     }
-    return Math.round(first_15_m);
+    return Math.floor(first_15_m);
 }
 
 function second_15_calculator(m3_mark,bonus){
@@ -92,7 +91,7 @@ function second_15_calculator(m3_mark,bonus){
     if(second_15_m>=15){
         second_15_m=15;
     }
-    return Math.round(second_15_m);
+    return Math.floor(second_15_m);
 }
 
 function extra_1_calculator(){
@@ -125,7 +124,6 @@ function display_result(internal_mark, external_mark,first_15,second_15,extra_1,
     document.getElementById("extra_critea_2").innerHTML = "Above 100 : " + extra_2 + " / 5";
     document.getElementById("internal_publish").innerHTML = "Internal Mark : " + internal_mark + " / 40";
     document.getElementById("external_publish").innerHTML = "External Mark : " + external_mark + " (TO PASS)";
-    document.getElementById("notice").innerHTML="*(There might be sight changes[+1 or -1] in internal mark as these values are not rounded off)";
     document.querySelector(".cr_1").innerHTML = "";
     document.querySelector(".cr_2").innerHTML = "";
     document.querySelector(".cr_3").innerHTML = "CREATED BY : ASHWIN SI 1ST YEAR (CSE-A)";
