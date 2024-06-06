@@ -137,7 +137,7 @@ function display_result(internal_mark, external_mark,first_15,second_15,extra_1,
     document.getElementById("second_15").innerHTML = "Model 3 : " + second_15 + " / 15";
     document.getElementById("extra_critea_1").innerHTML = "Skillrack & Certificate : " + extra_1 + " / 5";
     document.getElementById("extra_critea_2").innerHTML = "Above 100 : " + extra_2 + " / 5";
-    document.getElementById("internal_publish").innerHTML = "Internal Mark : " + internal_mark + " / 40";
+    document.getElementById("internal_publish").innerHTML = "Internal Mark : " + internal_mark.toFixed(2) + " / 40";
     document.getElementById("external_publish").innerHTML = "External Mark : " + external_mark + " (TO PASS)";
     document.querySelector(".cr_1").innerHTML = "";
     document.querySelector(".cr_2").innerHTML = "";
