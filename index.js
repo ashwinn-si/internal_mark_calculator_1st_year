@@ -30,6 +30,7 @@ function exception_condition_checker(m1_mark,m2_mark,m3_mark){ // checks for dou
     ||(!with_bonus.checked && !without_bonus.checked)){
         return 2;
     }
+    console.log("inspect ha da panni pankura body soda");
 }
 
 
