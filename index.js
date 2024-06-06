@@ -10,15 +10,13 @@ function main() { // main fucntion
         alert("Input missing!!!");//if the required fields are not choiced
         return;
     }
+    let marks_list=[0,0,0,0,0,0]//[first_15,second_15,extra_1,extra_2,internal,external]
     const bonus_mark=bonus_mark_checker()
-    let internal_mark=internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus_mark);
-    internal_mark=extra_criteria(internal_mark)
-    let external_mark=external_mark_calculation(internal_mark);
-    let first_15=first_15_calculator(m1_mark,m2_mark,bonus_mark);
-    let second_15=second_15_calculator(m3_mark,bonus_mark);
-    let extra_1=extra_1_calculator();
-    let extra_2=extra_2_calculator(m1_mark,m2_mark,m3_mark);
-    display_result(internal_mark,external_mark,first_15,second_15,extra_1,extra_2);//displaying result
+    marks_list=internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus_mark,marks_list);
+    marks_list=extra_criteria(marks_list)
+    marks_list=external_mark_calculation(marks_list);
+    console.log(marks_list)
+    display_result(marks_list);//displaying result
 };
 
 function exception_condition_checker(m1_mark,m2_mark,m3_mark){ // checks for double clicks or some eror inputs
@@ -45,99 +43,67 @@ function bonus_mark_checker(){
     }
 }
 
-function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus){
-    let first_15_m=(((m1_mark * bonus) + (m2_mark * bonus)) * 0.075); //bug 1 restored
-    let second_15_m=((m3_mark * bonus) * 0.15);
-    if(first_15_m>=15){
-        first_15_m=15;
+function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus,marks_list){
+    marks_list[0] = (((m1_mark * bonus) + (m2_mark * bonus)) * 0.075); //bug 1 restored
+    marks_list[1] =((m3_mark * bonus) * 0.15);
+    if(marks_list[0]>=15){
+        marks_list[0]=15;
     }
-    if(second_15_m>=15){
-        second_15_m=15;
+    if(marks_list[1]>=15){
+        marks_list[1]=15;
     }
-    let internal_mark=(first_15_m+second_15_m);
-    if(internal_mark>=30){// one more condition checker to avoid errors
-        internal_mark=30;
+    marks_list[0]= parseFloat(marks_list[0].toFixed(2));
+    marks_list[1]= parseFloat(marks_list[1].toFixed(2));
+    marks_list[4]=marks_list[0]+marks_list[1];
+    if(marks_list[4]>=30){// one more condition checker to avoid errors
+        marks_list[4]=30;
     }
     if (m1_mark + m2_mark + m3_mark >= 100) {
-        internal_mark += 5;
+        marks_list[4] += 5;
+        marks_list[3]+=5;
     }
 
-    return parseFloat(internal_mark.toFixed(2));
+    marks_list[4]= parseFloat(marks_list[4].toFixed(2));
+    return marks_list;
 }
 
-function extra_criteria(internal_mark){ // checks for extra criteria
+function extra_criteria(marks_list){ // checks for extra criteria
     if (skill_done.checked) {
-        internal_mark += 2.5;
+        marks_list[4] += 2.5;
+        marks_list[2]+=2.5;
     }
     if (extra_done.checked) {
-        internal_mark += 2.5;
+        marks_list[4] += 2.5;
+        marks_list[2]+=2.5;
     }
-    return internal_mark;
+    
+    return marks_list;
 }
 
-function external_mark_calculation(internal_mark){ //calcualtes the external mark
+function external_mark_calculation(marks_list){ //calcualtes the external mark
     let external_mark = 91;
-    if (internal_mark >= 23) {
+    if (marks_list[4] >= 23) {
         external_mark = 45;
     } else {
-        external_mark = external_mark - (Number(internal_mark) * 2);
+        external_mark = external_mark - (Number(marks_list[4]) * 2);
     }
-    return Math.floor(external_mark);
+    marks_list[5]=Math.floor(external_mark);
+    return marks_list;
 }
 
-
-// displaying function
-
-function first_15_calculator(m1_mark,m2_mark,bonus){
-    let first_15_m=(((m1_mark * bonus) + (m2_mark * bonus)) * 0.075);
-    if(first_15_m>=15){
-        first_15_m=15;
-    }
-    let res= (first_15_m).toFixed(2);
-    console.log(res);
-    return res;
-}
-
-function second_15_calculator(m3_mark,bonus){
-    let second_15_m=((m3_mark * bonus) * 0.15);
-    if(second_15_m>=15){
-        second_15_m=15;
-    }
-    let res=second_15_m.toFixed(2);
-    console.log(res);
-    return res;
-}
-
-function extra_1_calculator(){
-    res=0;
-    if(skill_done.checked){
-        res+=2.5;
-    }
-    if(extra_done.checked){
-        res+=2.5;
-    }
-    return res;
-}
-function extra_2_calculator(m1_mark,m2_mark,m3_mark){
-    if(m1_mark+m2_mark+m3_mark >=100){
-        return 5;
-    }else{
-        return 0;
-    }
-}
 
 //output function
-
-function display_result(internal_mark, external_mark,first_15,second_15,extra_1,extra_2) { 
-    alert("YOU MUST SCORE " + external_mark + " IN EXTERNAL EXAM TO PASS OUT OF 100\nINTERNAL MARK : " + internal_mark + " OUT OF 40");
+//mark_list=[first_15,second_15,extra_1,extra_2,internal,external]
+function display_result(marks_list) { 
+    alert("YOU MUST SCORE " + marks_list[5] + " IN EXTERNAL EXAM TO PASS OUT OF 100\nINTERNAL MARK : " + marks_list[4] + " OUT OF 40");
     document.getElementById("result_container").classList.add("result_container");
     document.getElementById("res_divs").classList.add("res_divss");
-    document.getElementById("first_15").innerHTML = "Model 1 & Model 2 : " + first_15 + " / 15";
-    document.getElementById("second_15").innerHTML = "Model 3 : " + second_15 + " / 15";
-    document.getElementById("extra_critea_1").innerHTML = "Skillrack & Certificate : " + extra_1 + " / 5";
-    document.getElementById("extra_critea_2").innerHTML = "Above 100 : " + extra_2 + " / 5";
-    document.getElementById("internal_publish").innerHTML = "Internal Mark : " + internal_mark + " / 40";
-    document.getElementById("external_publish").innerHTML = "External Mark : " + external_mark + " (TO PASS)";
+    document.getElementById("first_15").innerHTML = "Model 1 & Model 2 : " + marks_list[0] + " / 15";
+    document.getElementById("second_15").innerHTML = "Model 3 : " + marks_list[1] + " / 15";
+    document.getElementById("extra_critea_1").innerHTML = "Skillrack & Certificate : " + marks_list[2] + " / 5";
+    document.getElementById("extra_critea_2").innerHTML = "Above 100 : " + marks_list[3] + " / 5";
+    document.getElementById("internal_publish").innerHTML = "Internal Mark : " + marks_list[4] + " / 40";
+    document.getElementById("external_publish").innerHTML = "External Mark : " + marks_list[5] + " (TO PASS)";
     document.querySelector(".cr_1").innerHTML = "";
     document.querySelector(".cr_2").innerHTML = "";
     document.querySelector(".cr_3").innerHTML = "CREATED BY : ASHWIN SI 1ST YEAR (CSE-A)";
