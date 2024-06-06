@@ -61,8 +61,9 @@ function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus){
     if (m1_mark + m2_mark + m3_mark >= 100) {
         internal_mark += 5;
     }
+let res=internal_mark.toFixed(2);
 
-    return parseFloat(internal_mark.toFixed(2));
+    return parseFloat(res);
 }
 
 function extra_criteria(internal_mark){ // checks for extra criteria
