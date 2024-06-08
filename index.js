@@ -3,6 +3,7 @@ function main() { // main fucntion
     let m2_mark = Number(document.getElementById("m2_mark").value);
     let m3_mark = Number(document.getElementById("m3_mark").value);
     let excep_check=exception_condition_checker(m1_mark,m2_mark,m3_mark);
+    refresh_window();//refreshes the window 
     if(excep_check==1){
         alert("Wrong input try again !!!");//displays wrong input
         return;
@@ -13,10 +14,14 @@ function main() { // main fucntion
     let marks_list=[0,0,0,0,0,0]//[first_15,second_15,extra_1,extra_2,internal,external]
     const bonus_mark=bonus_mark_checker()
     marks_list=internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus_mark,marks_list);
-    marks_list=extra_criteria(marks_list)
+    const hundard_checker=hundard_mark_checker(m1_mark,m2_mark,m3_mark);//checks for 100 marks
+    if(hundard_checker){
+        marks_list=extra_criteria(marks_list)
+    }else{
+        marks_list=mark_changer_spcial_case(marks_list)
+    }
     marks_list=external_mark_calculation(marks_list);
-    console.log(marks_list)
-    display_result(marks_list);//displaying result
+    display_result(marks_list,hundard_checker);//displaying result
 };
 
 function exception_condition_checker(m1_mark,m2_mark,m3_mark){ // checks for double clicks or some eror inputs
@@ -33,7 +38,10 @@ function exception_condition_checker(m1_mark,m2_mark,m3_mark){ // checks for dou
     console.log("inspect ha da panni pankura body soda");
 }
 
-
+function refresh_window(){
+    document.querySelector(".cr_1").innerHTML = "";
+        document.querySelector(".cr_1").classList.remove("special_case")
+}
 //calculation part
 
 function bonus_mark_checker(){
@@ -62,12 +70,27 @@ function internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus,marks_list){
     if (m1_mark + m2_mark + m3_mark >= 100) {
         marks_list[4] += 5;
         marks_list[3]+=5;
+        
     }
-
     marks_list[4]= parseFloat(marks_list[4].toFixed(2));
     return marks_list;
 }
 
+function hundard_mark_checker(m1_mark,m2_mark,m3_mark){
+    if (m1_mark + m2_mark + m3_mark >= 100) {
+        return true;
+    }else{
+
+        return false;
+    }
+}
+//[first_15,second_15,extra_1,extra_2,internal,external]
+function mark_changer_spcial_case(mark_list){
+    let res=mark_list[0]+mark_list[1];
+    mark_list[4]=res*1.334;
+    return(mark_list);
+
+}
 function extra_criteria(marks_list){ // checks for extra criteria
     if (skill_done.checked) {
         marks_list[4] += 2.5;
@@ -86,7 +109,7 @@ function external_mark_calculation(marks_list){ //calcualtes the external mark
     if (marks_list[4] >= 23) {
         external_mark = 45;
     } else {
-        external_mark = external_mark - (Number(marks_list[4]) * 2);
+        external_mark = (50-marks_list[4])*1.667;
     }
     marks_list[5]=Math.floor(external_mark);
     return marks_list;
@@ -95,7 +118,8 @@ function external_mark_calculation(marks_list){ //calcualtes the external mark
 
 //output function
 //mark_list=[first_15,second_15,extra_1,extra_2,internal,external]
-function display_result(marks_list) { 
+function display_result(marks_list,hundard_checker) { 
+    marks_list[4] = Math.round(marks_list[4]);
     alert("YOU MUST SCORE " + marks_list[5] + " IN EXTERNAL EXAM TO PASS OUT OF 100\nINTERNAL MARK : " + marks_list[4] + " OUT OF 40");
     document.getElementById("result_container").classList.add("result_container");
     document.getElementById("res_divs").classList.add("res_divss");
@@ -109,4 +133,9 @@ function display_result(marks_list) {
     document.querySelector(".cr_2").innerHTML = "";
     document.querySelector(".cr_3").innerHTML = "CREATED BY : ASHWIN SI 1ST YEAR (CSE-A)";
     document.querySelector(".cr_4").innerHTML = "insta : _ashwin_si";
+    if(!hundard_checker){
+        document.querySelector(".cr_1").innerHTML = "SPECIAL CASE [LESSER THAN 100]";
+        document.querySelector(".cr_1").classList.add("special_case")
+        
+    }
 }

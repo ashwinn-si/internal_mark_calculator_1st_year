@@ -94,3 +94,10 @@ input{
     
     border-radius: 4px;
 }
+.special_case{
+    color: white;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    padding: 10px;
+    background-color: #F51720
+}
