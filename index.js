@@ -130,9 +130,7 @@ function display_result(marks_list,hundard_checker) {
     document.getElementById("internal_publish").innerHTML = "Internal Mark : " + marks_list[4] + " / 40";
     document.getElementById("external_publish").innerHTML = "External Mark : " + marks_list[5] + " (TO PASS)";
     document.querySelector(".cr_1").innerHTML = "";
-    document.querySelector(".cr_2").innerHTML = "";
-    document.querySelector(".cr_3").innerHTML = "CREATED BY : ASHWIN SI 1ST YEAR (CSE-A)";
-    document.querySelector(".cr_4").innerHTML = "insta : _ashwin_si";
+    document.querySelector(".cr_3").innerHTML = "CREATED BY : ASHWIN SI(CSE)";
     if(!hundard_checker){
         document.querySelector(".cr_1").innerHTML = "SPECIAL CASE [LESSER THAN 100]";
         document.querySelector(".cr_1").classList.add("special_case")

@@ -1,50 +1,107 @@
 *{
     padding: 0;
     margin: 0;
-}
-body{
-    background-color: #05445E;
-    font-family:Poppins;
-}
-.title{
-    font-size: 3rem;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
     color: white;
-    padding: 5px;
-    margin-bottom: 10px;
-    text-align: center;
 }
-.content_box{
-    
-    box-shadow: none;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.content_box div{
-    background-color: #D4F1F4;
-    padding: 10px;
-}
-.bonus_mark{
-    color: #05445E;
+p{
     font-weight: bold;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-}
-.mark,.extra_act{
-    color: #05445E;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.extra_act{
-    justify-content: space-around;
 }
 input{
-    margin: 5px;
-    padding: 5px;
+    color: black;
+}
+.header{
+    background: url("images/font_img.gif") no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 3rem;
+    margin: 10px 0;
+    text-align: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.content_box{
+    height: auto;
+    width:500px;
+    background-image: url("images/background_img.gif");
+    background-repeat: repeat;
+    background-position: cover;
+    padding: 20px;
+    border-radius: 20px;
+}
+.sub_head{
+    
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 8px ;
+
+}
+.notice{
+    color: white;
+    text-align: left;
+    font-size: 1.3rem;
+}
+.bonus_checker{
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+
+.mark_container,.mark_container_1{
+    width: 100%;
+    margin: 40px 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.mark_container_1{
+    margin: 10px 0;
+}
+.sub_name{
+    width: 50%;
+    font-size: 1rem;
+}
+.sub_mark{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+.sub_mark input{
+    border-radius: 5px;
+    border:none;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    padding: 4px;
+    text-align: left;
+}
+.skillrack_container,.online_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.online_container{
+    margin: 20px 0px;
 }
 .cal_container{
     display: flex;
@@ -53,27 +110,22 @@ input{
     flex-direction: row;
 }
 .cal_button{
+    font-weight: bold;
     padding: 10px;
-    background-color: #189AB4;
-    color: #05445E;
+    background-color: #F8D210;
+    color: black;
     border: none;
     font-size: 18px;
     text-align: center;
     border-radius: 3px;
-    transition: opacity 1s;
-}
-
-.sub_heading{
-    text-align: center; 
-    font-size: 2rem; 
-    color: #05445E;
+    margin: 10px;
 }
 .notice{
-    font-size: 1rem; 
+    font-size: 1.2rem; 
     text-align: justify; 
-    color: #05445E;
 }
 .result_container {
+
     font-size: 1.2rem;
     color:#D4F1F4;
     display: flex;
@@ -81,23 +133,75 @@ input{
     align-items: center;
 }
 .result_container div{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     padding: 20px;
-    background-color: #05445E;
+    background: url("images/res_img.jpg");
+}
+#res_divs p{
+    color:black;
+    margin: 10px;
+    font-size: 1.2rem;
 }
 .res_1{
-    color:#D4F1F4;
+    color:black;
     padding: 5px;
-    
-   
     background-color: #05445E;
     text-align: center;
-    
     border-radius: 4px;
 }
 .special_case{
+    margin:10px 0px;
     color: white;
     font-weight: bolder;
     font-size: 1.4rem;
     padding: 10px;
     background-color: #F51720
+}
+@media (max-width: 768px) {
+    .header {
+        font-size: 2rem;
+    }
+    .sub_head {
+        font-size: 1.6rem;
+    }
+    .bonus_checker {
+        font-size: 1.2rem;
+        
+        
+    }
+    .mark_container, .mark_container_1 {
+        
+        margin: 20px 0;
+    }
+    .sub_name, .sub_mark {
+        width: 100%;
+        text-align: center;
+    }
+    .cal_button{
+        transition: none;
+    }
+    .skillrack_container, .online_container {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+    .cal_button {
+        font-size: 16px;
+        padding: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    .result_container div {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    .res_1 {
+        font-size: 1rem;
+    }
+    .special_case {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
 }
