@@ -5,6 +5,9 @@
     font-family: "Poppins", sans-serif;
     color: white;
 }
+body{
+    background-color: rgb(247, 247, 247);
+}
 p{
     font-weight: bold;
 }
@@ -30,6 +33,7 @@ input{
     width: 100%;
 }
 .content_box{
+    margin: 10px;
     height: auto;
     width:500px;
     background-image: url("images/background_img.gif");
