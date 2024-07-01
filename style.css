@@ -128,6 +128,14 @@ input{
     font-size: 1.2rem; 
     text-align: justify; 
 }
+.credits{
+    background: url("images/credit_font.gif") no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+}
 .result_container {
 
     font-size: 1.2rem;
@@ -156,12 +164,14 @@ input{
     border-radius: 4px;
 }
 .special_case{
+    text-decoration: none;
     margin:10px 0px;
     color: white;
     font-weight: bolder;
     font-size: 1.4rem;
     padding: 10px;
-    background-color: #F51720
+    background: local;
+    background-color: #F51720;
 }
 @media (max-width: 768px) {
     .header {
