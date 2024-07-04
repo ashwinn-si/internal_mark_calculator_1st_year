@@ -173,6 +173,9 @@ input{
     background: local;
     background-color: #F51720;
 }
+.result_page_button{
+    visibility: hidden;
+}
 #res_divs{
     justify-content: center;
     align-items: center;

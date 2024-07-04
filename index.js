@@ -139,6 +139,7 @@ function display_result(marks_list,hundard_checker) {
         document.querySelector(".cr_1").classList.add("special_case")
         
     }
+    
 }
 
 // display result page
