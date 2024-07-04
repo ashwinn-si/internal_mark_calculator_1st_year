@@ -1,5 +1,6 @@
 let marks_list=[0,0,0,0,0,0];
 function main() { // main fucntion 
+    marks_list=[0,0,0,0,0,0];
     let m1_mark = Number(document.getElementById("m1_mark").value);
     let m2_mark = Number(document.getElementById("m2_mark").value);
     let m3_mark = Number(document.getElementById("m3_mark").value);
@@ -139,7 +140,6 @@ function display_result(marks_list,hundard_checker) {
         document.querySelector(".cr_1").classList.add("special_case")
         
     }
-    
 }
 
 // display result page
