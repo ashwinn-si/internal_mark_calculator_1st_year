@@ -1,3 +1,4 @@
+let marks_list=[0,0,0,0,0,0];
 function main() { // main fucntion 
     let m1_mark = Number(document.getElementById("m1_mark").value);
     let m2_mark = Number(document.getElementById("m2_mark").value);
@@ -11,7 +12,7 @@ function main() { // main fucntion
         alert("Input missing!!!");//if the required fields are not choiced
         return;
     }
-    let marks_list=[0,0,0,0,0,0]//[first_15,second_15,extra_1,extra_2,internal,external]
+    //[first_15,second_15,extra_1,extra_2,internal,external]
     const bonus_mark=bonus_mark_checker()
     marks_list=internal_mark_calculation(m1_mark,m2_mark,m3_mark,bonus_mark,marks_list);
     const hundard_checker=hundard_mark_checker(m1_mark,m2_mark,m3_mark);//checks for 100 marks
@@ -131,9 +132,25 @@ function display_result(marks_list,hundard_checker) {
     document.getElementById("external_publish").innerHTML = "External Mark : " + marks_list[5] + " (TO PASS)";
     document.querySelector(".cr_1").innerHTML = "";
     document.querySelector(".cr_3").innerHTML = "CREATED BY : ASHWIN SI(CSE)";
+    document.querySelector(".result_page_button").innerHTML="VIEW POSSIBLE RESULTS";
+    document.querySelector(".result_page_button").style.visibility="visible";
     if(!hundard_checker){
         document.querySelector(".cr_1").innerHTML = "SPECIAL CASE [LESSER THAN 100]";
         document.querySelector(".cr_1").classList.add("special_case")
         
     }
+}
+
+// display result page
+function result_page(){
+    let intermal_marl_scored=marks_list[4];
+    let marks_display=[60,54,48,42,36,30,27,marks_list[4]];
+    for(let i=0;i<7;i++){
+        marks_display[i]+=intermal_marl_scored;
+        if(marks_display[i]>100){
+            marks_display[i]=100;
+        }
+    }
+    localStorage.setItem('marks_display', JSON.stringify(marks_display));
+    window.location.href = "result_page.html";
 }

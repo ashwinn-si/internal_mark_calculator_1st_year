@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: poppins;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content_box{
+    display: flex;
+    flex-direction: column;
+
+    margin: 10px;
+    height: auto;
+    width:500px;
+    background-image: url("images/background_img.gif");
+    background-repeat: repeat;
+    background-position: cover;
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+.heading{
+    background: url("images/font_img.gif") no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 3rem;
+    margin: 10px 0;
+    text-align: center;
+}
+.sub_head{
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    margin: 10px 0;
+    text-align: center;
+    color: #F8D210;
+}
+.mark_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+.mark_container div{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.mark_container div div{
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 5px 0;
+    width: 50%;
+}
+.div1,.div2{
+    color: #F51720;
+}
+.return{
+    font-weight: bold;
+    padding: 10px;
+    background-color: #F8D210;
+    color: black;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 3px;
+    margin: 10px;
+}
+.credits{
+    background: url("images/credit_font.gif") no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+}
+@media (max-width: 768px) {
+    .heading{
+        font-size: 2rem;
+    }
+    .sub_head{
+        font-size: 1.5rem;
+    }
+    .mark_container div .div1{
+        font-size: 1rem;
+    }
+    .mark_container div .div2{
+        font-size: 1rem;
+    }
+}

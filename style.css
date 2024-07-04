@@ -173,6 +173,13 @@ input{
     background: local;
     background-color: #F51720;
 }
+#res_divs{
+    justify-content: center;
+    align-items: center;
+}
+.result_page_button{
+    visibility: hidden;
+}
 @media (max-width: 768px) {
     .header {
         font-size: 2rem;
