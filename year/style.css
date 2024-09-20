@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin:0;
+    font-family: poppins;
+    text-transform: uppercase;
+}
+.header{
+    font-size: 2rem;
+    padding-bottom: 0px;
+}
+.container{
+    padding: 10px;
+}
+.sub-container{
+    background-color: aqua;
+}
+.sub_header{
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+}
+.with_with_out_bonus_container{
+    font-size: 1.2rem;
+}
+.mark_container,.extra_activity_container{
+    padding: 10px;
+    font-size: 1.3rem;
+}
