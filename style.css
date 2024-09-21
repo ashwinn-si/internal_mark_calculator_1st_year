@@ -36,9 +36,7 @@ input{
     margin: 10px;
     height: auto;
     width:500px;
-    background-image: url("images/background_img.gif");
-    background-repeat: repeat;
-    background-position: cover;
+    background-color: #05445E;
     padding: 20px;
     border-radius: 20px;
 }
