@@ -75,7 +75,7 @@ body{
     margin: 10px;
 }
 .credits{
-    background: url("images/credit_font.gif") no-repeat;
+    background: url("../images/credit_font.gif") no-repeat;
     background-size: cover;
     -webkit-background-clip: text;
     background-clip: text;
