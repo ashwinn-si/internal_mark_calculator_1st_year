@@ -27,11 +27,7 @@ body{
     
 }
 .heading{
-    background: url("images/font_img.gif") no-repeat;
-    background-size: cover;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: black;
     font-weight: bold;
     margin-top: 20px;
     font-size: 3rem;
@@ -72,9 +68,7 @@ body{
 .return{
     font-weight: bold;
     padding: 10px;
-    background-color: #F8D210;
     color: black;
-    border: none;
     font-size: 18px;
     text-align: center;
     border-radius: 3px;
@@ -87,6 +81,54 @@ body{
     background-clip: text;
     color: transparent;
 
+}
+.initial_alert_container{
+    background-color: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    width: 400px;
+    padding: 20px 0;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    z-index: 999;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    border: solid;
+    border-color: black;
+    padding: 10px;
+}
+.initial_alert_container{
+    visibility: visible;
+}
+.initial_alert_container span{
+    color: blueviolet;
+    font-weight: bold;
+}
+button {
+    background-color: white; 
+      color: black;
+      padding: 10px 20px;
+      border: solid;
+      border-width: 1px;
+      border-color: #000;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+      transition: box-shadow 0.5s ease, transform 0.5s ease; /
+}
+button:hover {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+    transform: translateY(-2px); /* Moves button up slightly */
+}
+button:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow on button press */
+    transform: translateY(0); /* Resets the button position */
 }
 @media (max-width: 768px) {
     .heading{

@@ -6,9 +6,7 @@ for(let i=0;i<7;i++){
     if(marks_display[i]>100){
         marks_display[i]=100;
     }
-}
-alert("Due to the relative grading system in our college, it is not possible to predict the exact GRADE as it depends on the highest mark achieved by a student. The possible marks are displayed below.")
-        
+}        
 if (marks_display) {
     document.querySelector(".div4").innerHTML = marks_display[0];
     document.querySelector(".div6").innerHTML = marks_display[1];
@@ -20,5 +18,5 @@ if (marks_display) {
 }
 document.querySelector(".sub_head").innerHTML="INTERNAL MARKS : "+marks_display[7];
 function return_page(){
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
 }

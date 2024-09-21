@@ -146,5 +146,5 @@ function display_result(marks_list,hundard_checker) {
 function result_page(){
     let intermal_marl_scored=marks_list[4];
     localStorage.setItem('internal_mark', JSON.stringify(intermal_marl_scored));
-    window.location.href = "result_page.html";
+    window.location.href = "result_page/result_page.html";
 }
