@@ -15,7 +15,7 @@ input{
     color: black;
 }
 .header{
-    background: url("images/font_img.gif") no-repeat;
+    background: url("../images/font_img.gif") no-repeat;
     background-size: cover;
     -webkit-background-clip: text;
     background-clip: text;
@@ -36,7 +36,7 @@ input{
     margin: 10px;
     height: auto;
     width:500px;
-    background-image: url("images/background_img.gif");
+    background-image: url("../images/background_img.gif");
     background-repeat: repeat;
     background-position: cover;
     padding: 20px;
@@ -129,7 +129,7 @@ input{
     text-align: justify; 
 }
 .credits{
-    background: url("images/credit_font.gif") no-repeat;
+    background: url("../images/credit_font.gif") no-repeat;
     background-size: cover;
     -webkit-background-clip: text;
     background-clip: text;
@@ -149,7 +149,7 @@ input{
     background-position: center;
     background-size: cover;
     padding: 20px;
-    background: url("images/res_img.jpg");
+    background: url("../images/res_img.jpg");
 }
 #res_divs p{
     color:black;
