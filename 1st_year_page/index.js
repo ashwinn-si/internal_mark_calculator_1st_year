@@ -145,13 +145,6 @@ function display_result(marks_list,hundard_checker) {
 // display result page
 function result_page(){
     let intermal_marl_scored=marks_list[4];
-    let marks_display=[60,54,48,42,36,30,27,marks_list[4]];
-    for(let i=0;i<7;i++){
-        marks_display[i]+=intermal_marl_scored;
-        if(marks_display[i]>100){
-            marks_display[i]=100;
-        }
-    }
-    localStorage.setItem('marks_display', JSON.stringify(marks_display));
+    localStorage.setItem('internal_mark', JSON.stringify(intermal_marl_scored));
     window.location.href = "result_page.html";
 }

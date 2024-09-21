@@ -2,8 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: white;
+    color: black;
     font-family: poppins;
+}
+body{
+    background-color: rgb(232,226,226) !important;
 }
 .container{
     height: 100vh;
@@ -14,13 +17,11 @@
 .content_box{
     display: flex;
     flex-direction: column;
-
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
     margin: 10px;
     height: auto;
     width:500px;
-    background-image: url("images/background_img.gif");
-    background-repeat: repeat;
-    background-position: cover;
     padding: 20px;
     border-radius: 20px;
     
@@ -66,7 +67,7 @@
     width: 50%;
 }
 .div1,.div2{
-    color: #F51720;
+    color: #333;
 }
 .return{
     font-weight: bold;
