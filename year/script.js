@@ -1,6 +1,6 @@
-let result_mark=[0,0,false,false,false,false,0];//first_10,second_10,bonus,nptel,course,extra,final
+let result_mark=[0,0,false,false,false,false,0,0];//first_10,second_10,bonus,nptel,course,extra,final,external
 function input_box_error_handler(mark,element_id){
-    if(mark<0 || mark>100 || mark===NaN){
+    if(mark<0 || mark>100|| isNaN(mark)){
         navigator.vibrate(200);
         const container = document.getElementById(`${element_id}`);
         container.classList.add('vibrate');
@@ -35,11 +35,13 @@ function radio_button_checker(b1, b2) {
 
 
 document.getElementById("calculate_button").addEventListener('click',()=>{
-    result_mark=[0,0,false,false,false,false,0];
+    result_mark=[0,0,false,false,false,false,0,0];
+    document.getElementById('special_case_text').innerHTML=``;
     let m1_mark=parseInt(document.getElementById('mark_m1').value)
     let m2_mark=parseInt(document.getElementById('mark_m2').value)
     let m3_mark=parseInt(document.getElementById('mark_m3').value)
     if(input_box_error_handler(m1_mark,'mark_m1') && input_box_error_handler(m2_mark,'mark_m2') && input_box_error_handler(m3_mark,'mark_m3') && radio_button_checker('yes_bonus','no_bonus') && radio_button_checker('nptel_yes','nptel_no') && radio_button_checker('course_yes','course_no') &&radio_button_checker('extra_yes','extra_no')){
+        console.log(m1_mark);
         const bonus=document.getElementsByName('bonus');
         bonus.forEach((element)=>{
             if(element.checked){
@@ -90,7 +92,7 @@ function extra_activity_cal(){
         }
     })
 }
-//first_10,second_10,bonus,nptel,course,extra,final_result
+//first_10,second_10,bonus,nptel,course,extra,final_result,external
 function internal_mark_calculation(){
     let result=result_mark[0]+result_mark[1];
     if(result_mark[3]){
@@ -102,14 +104,66 @@ function internal_mark_calculation(){
     if(result_mark[5]){
         result+=5;
     }
-    result_mark[6]=result;
+    result_mark[6]=parseFloat(result.toFixed(2));
+    external_mark_calculation()
+}
+function external_mark_calculation(){ //calcualtes the external mark
+    let external_mark = 91;
+    if (result_mark[6] >= 23) {
+        external_mark = 45;
+    } else {
+        external_mark = (50-result_mark[6])*1.667;
+    }
+    result_mark[7]=Math.floor(external_mark);
 }
 
+function display_changer(){
+    let bonus_or_not=(result_mark[2])?"WITH BONUS":"WITHOUT BONUS";
+    let nptel=(result_mark[3])?"8":"0";
+    let extra=(result_mark[5])?"5":"0";
+    let course=(result_mark[4])?"7":"0";
+    document.querySelector('.result-mark-container').style.visibility='visible';
+    document.querySelector('.result-mark-container').innerHTML=`<div class="row">
+                    <p class="result-mark-header">${bonus_or_not}</p>
+                </div>
+                <div class="row">
+                    <div class="col"><p >MODEL 1 & 2 </p></div>
+                    <div class="col"><p>${result_mark[0]} / 10</p></div>
+                </div>
+                <div class="row">
+                    <div class="col"><p>MODEL 3 </p></div>
+                    <div class="col"><p>${result_mark[1]} / 10</p></div>
+                </div>
+                <div class="row">
+                    <div class="col"><p>NPTEL </p></div>
+                    <div class="col"><p>${nptel} / 8</p></div>
+                </div>
+                <div class="row">
+                    <div class="col"><p>COURSE </p></div>
+                    <div class="col"><p>${course} / 7</p></div>
+                </div>
+                <div class="row">
+                    <div class="col"><p>EXTRA </p></div>
+                    <div class="col"><p>${extra} / 5</p></div>
+                </div>
+                <div class="row">
+                    <div class="col"><p>TOTAL INTERNAL</p></div>
+                    <div class="col"><p>${result_mark[6]} / 40</p></div>
+                </div>
+                <div class="row">
+                    <div class="col"><p>MARK TO PASS </p></div>
+                    <div class="col"><p>${result_mark[7]} / 100</p></div>
+                </div>
+                <button id="possible-mark-button">POSSIBLE MARK</button>`
+}
 function main(m1_mark,m2_mark,m3_mark){
     mark_calculator(m1_mark,m2_mark,m3_mark,result_mark[2]);
     if(m1_mark+m2_mark+m3_mark>100){
         extra_activity_cal();
+    }else{
+        document.getElementById('special_case_text').innerHTML=`<p style=" background-color: tomato;width: 150px; padding: 3px;border-radius: 5px; font-weight: bold; color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 1);">SPECIAL CASE</p>`;
     }
     internal_mark_calculation();
+    display_changer();
     console.log(result_mark);
 }
