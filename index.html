@@ -4,75 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INTERNAL MARK CALCULATOR</title>
+    <link rel="icon" href="assets/web_icon.png">
+    <!--main style sheet-->
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="./assets/bootstrap/bootstrap.min.css">
+    <!--font style-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+    <!-- LOTTIE ANIMATION -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.11/lottie.min.js"></script>
 </head>
 <body>
-    <p class="header">INTERNAL MARK CALCULATOR</p>
-    <div class="container">
-        <div class="content_box">
-            <p class="sub_head">SEM 2 / SEM 4</p>
-            <p class="notice">(*Note : Enter the mark without 1.5)</p>
-            <div class="bonus_checker">
-                <input id="with_bonus" type="checkbox">
-                <p>With Bonus</p>
-                <input id="without_bonus" type="checkbox">
-                <p>Without Bonus</p>
+    <div class="container text-center">
+            <p class="header">INTERNAL MARK CALCULATOR</p>
+            <div class="initial_alert_container" id="congrs-lottie-animation">
             </div>
-            <div class="mark_container_1">
-                <div class="sub_name"><p>marks scored in model 1 :</p></div>
-                <div class="sub_mark"><input type="value" placeholder="Enter your mark" id="m1_mark"></div>
+            <div class="initial_alert_container_msg" id="initial_alert_container_msg" style="font-size: 1.5rem;">
+                <p>ENTER ALL THE MARKS <span>WITHOUT 1.5</span></p>
+                <button id="initial_pop_up_return_button" onclick="document.getElementById('initial_alert_container_msg').style.visibility='hidden'">continue</button>
             </div>
-            <div class="mark_container">
-                <div class="sub_name"><p>marks scored in model 2 :</p></div>
-                <div class="sub_mark"><input type="value" placeholder="Enter your mark" id="m2_mark"></div>
-            </div>
-            <div class="mark_container">
-                <div class="sub_name"><p>marks scored in model 3 :</p></div>
-                <div class="sub_mark"><input type="value" placeholder="Enter your mark" id="m3_mark"></div>
-            </div>
-            <div class="skillrack_container">
-                <p>skillrack 50 bronze: </p>
-                <input type="checkbox" id="skill_done">
-                <p>Done</p>
-                <input type="checkbox" id="skill_not_done">
-                <p>Not Done</p>
-            </div>
-            <div class="online_container">
-                <p>Online Course : </p>
-                <input type="checkbox" id="extra_done">
-                <p>Done</p>
-                <input type="checkbox" id="extra_not_done">
-                <p>Not Done</p>
-            </div>
-            <div class="cal_container">
-                <button class="cal_button" id="calculate" onclick="main()">CALCULATE</button>
-            </div>
-            <p style="text-align: center; margin-bottom: 10px;"><a style="font-size: 13px;text-align: center; margin: 2px; font-weight: bold ;" class="cr_1 credits" href="https://ashwinn-si.github.io/ashwin_si/"  target="_blank" >CREATED BY : ASHWIN SI (CSE)</a></p>
-            <div id="result_container" >
-                <div id="res_divs">
-                    <p id="first_15"></p>
-                    <p id="second_15"></p>
-                    <p id="extra_critea_1"></p>
-                    <p id="extra_critea_2"></p>
-                    <p id="internal_publish"></p>
-                    <p id="external_publish"></p>
-                    
+            <div class="container sub-container col-12 col-md-6">
+                <p class="sub_head">1ST YEAR</p>
+                <div class="row with_with_out_bonus_container justify-content-center" style="padding-top: 0px;">
+                    <div class="col-2"><input type="radio" name="bonus" value="yes" id="yes_bonus"></div>
+                    <div class="col-4" style="font-weight: 500;">WITH BONUS</div>
+                    <div class="col-2"><input type="radio" name="bonus" value="no" id="no_bonus"></div>
+                    <div class="col-4 " style="font-weight: 500;">WITHOUT BONUS</div>
                 </div>
-                <button class="cal_button result_page_button" onclick="result_page()"></button>
+               <div class="row mark_container">
+                    <div class="col-6" style="font-weight: 500;">Enter mark scored in M1</div>
+                    <div class="col-6"><input type="number" min=0 max=100 id="mark_m1" class="input_box" placeholder="Enter Mark"></div>
+                </div>
+                <div class="row mark_container">
+                    <div class="col-6" style="font-weight: 500;">Enter mark scored in M2</div>
+                    <div class="col-6"><input type="number" min=0 max=100 id="mark_m2" class="input_box" placeholder="Enter Mark"></div>
+                </div>
+                <div class="row mark_container">
+                    <div class="col-6" style="font-weight: 500;">Enter mark scored in M3</div>
+                    <div class="col-6"><input type="number" min=0 max=100 id="mark_m3" class="input_box" placeholder="Enter Mark"></div>
+                </div>
+                <div class="row extra_activity_container">
+                    <div class="col-4" style="font-weight: 500;">SKILLRACK <br>[50 BRONZE]</div>
+                    <div class="col-1"><input type="radio" name="skillrack" value="yes" id="skillrack_yes"></div>
+                    <div class="col-3"><p style="font-weight: 400;">DONE</p></div>
+                    <div class="col-1"><input type="radio" name="skillrack" value="no" id="skillrack_no"></div>
+                    <div class="col-3"><p style="font-weight: 400;">NOT DONE</p></div>
+                </div>
+                <div class="row extra_activity_container">
+                    <div class="col-4" style="font-weight: 500;">ONLINE COURSE</div>
+                    <div class="col-1"><input type="radio" name="course" value="yes" id="course_yes"></div>
+                    <div class="col-3"><p style="font-weight: 400;">DONE</p></div>
+                    <div class="col-1"><input type="radio" name="course" value="no" id="course_no"></div>
+                    <div class="col-3"><p style="font-weight: 400;">NOT DONE</p></div>
+                </div>
+                <div class="row justify-content-center "><button  id="calculate_button">CALCULATE</button></div>
+            <div class="row justify-content-center" id="special_case_text"></div>
+            <div class="container result-mark-container col-10 col-md-7">
+            </div>
+            <div class="row">
+                <div class="col justify-content-center" style="display: flex; flex-direction: row;">
+                    <div style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
+                    background: rgb(56,56,56);
+                    background: -moz-linear-gradient(180deg, rgba(56,56,56,1) 3%, rgba(125,125,125,1) 56%, rgba(56,56,56,1) 86%);
+                    background: -webkit-linear-gradient(180deg, rgba(56,56,56,1) 3%, rgba(125,125,125,1) 56%, rgba(56,56,56,1) 86%);
+                    background: linear-gradient(180deg, rgba(56,56,56,1) 3%, rgba(125,125,125,1) 56%, rgba(56,56,56,1) 86%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#383838',endColorstr='#383838',GradientType=1);font-weight: bold;font-size: 1.2rem;"target="_blank">BHAVADHARANI [CSE]</a></div>
+                </div>
                 
             </div>
-            <p style="text-align: center;"><a style="font-size: 13px;text-align: center; margin-top: 5px; font-weight: bold;" class="cr_3 credits" href="https://ashwinn-si.github.io/ashwin_si/" target="_blank"></a></p>
-            
-        
-
-        </div>
-
+            </div>
     </div>
+    <!--Main js-->
     <script src="index.js"></script>
+    <!--Bootstrap scripts-->
+    <script src="./assets/bootstrap/jquery.min.js"></script>
+    <script src="./assets/bootstrap/bootstrap.min.js"></script>
+    <!--Lottie scripts-->
+    <script src="./assets/lottie_ani.js"></script>
     
 </body>
 </html>

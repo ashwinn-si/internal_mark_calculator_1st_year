@@ -21,7 +21,7 @@ body{
     box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
     margin: 10px;
     height: auto;
-    width:350px;
+    width:500px;
     padding: 20px;
     border-radius: 20px;
     
@@ -40,7 +40,10 @@ body{
     font-size: 1.5rem;
     margin: 10px 0;
     text-align: center;
-    color: #F8D210;
+    color:  lightseagreen;
+}
+.sub_head span{
+    color:tomato;
 }
 .mark_container {
     display: flex;
@@ -75,7 +78,7 @@ body{
     margin: 10px;
 }
 .credits{
-    background: url("../images/credit_font.gif") no-repeat;
+    background: url("images/credit_font.gif") no-repeat;
     background-size: cover;
     -webkit-background-clip: text;
     background-clip: text;
@@ -85,7 +88,7 @@ body{
 .initial_alert_container{
     background-color: rgba(255, 255, 255, 0.95);
     position: absolute;
-    width: 400px;
+    width: 500px;
     padding: 20px 0;
     border-radius: 30px;
     display: flex;
@@ -131,6 +134,9 @@ button:active {
     transform: translateY(0); /* Resets the button position */
 }
 @media (max-width: 768px) {
+    .initial_alert_container{
+        width: 350px;
+    }
     .heading{
         font-size: 2rem;
     }

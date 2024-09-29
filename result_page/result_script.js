@@ -6,6 +6,7 @@ for(let i=0;i<7;i++){
     if(marks_display[i]>100){
         marks_display[i]=100;
     }
+    marks_display[i]=parseFloat(marks_display[i].toFixed(2));
 }        
 if (marks_display) {
     document.querySelector(".div4").innerHTML = marks_display[0];
@@ -16,7 +17,7 @@ if (marks_display) {
     document.querySelector(".div14").innerHTML = marks_display[5];
     document.querySelector(".div16").innerHTML = marks_display[6];
 }
-document.querySelector(".sub_head").innerHTML="INTERNAL MARKS : "+marks_display[7];
+document.querySelector(".sub_head").innerHTML=`INTERNAL MARKS : <span>${marks_display[7]}</span>`;
 function return_page(){
     window.location.href = "../index.html";
 }
