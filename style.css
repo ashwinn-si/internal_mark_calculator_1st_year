@@ -1,15 +1,16 @@
-*{
+* {
     padding: 0;
-    margin:0;
-    font-family: "poppins";
+    margin: 0;
+    font-family: "Poppins";
     text-transform: uppercase;
     box-sizing: border-box;
 }
-body{
-    background-color: rgb(232,226,226) !important;
+body {
+    background-color: #121212 !important; /* Dark background */
+    color: #e0e0e0; /* Light text */
 }
-.initial_alert_container_msg{
-    background-color: rgba(255, 255, 255, 0.95);
+.initial_alert_container_msg {
+    background-color: rgba(34, 34, 34, 0.95); /* Darker background */
     position: absolute;
     width: 500px;
     padding: 20px 0;
@@ -24,201 +25,179 @@ body{
     font-size: 1.2rem;
     border-radius: 20px;
     border: solid;
-    border-color: black;
+    border-color: #444; /* Darker border */
     padding: 10px;
-    top:40%;
-    left:35%;
-    
+    top: 40%;
+    left: 35%;
+    color: white;
 }
-.initial_alert_container_msg{
-    visibility: visible;
-}
-.initial_alert_container_msg span{
-    color: blueviolet;
+.initial_alert_container_msg span {
+    color: #bb86fc; /* Light purple text */
     font-weight: bold;
 }
 .initial_alert_container_msg button {
-    background-color: white; 
-      color: black;
-      padding: 10px 20px;
-      border: solid;
-      border-width: 1px;
-      border-color: #000;
-      border-radius: 5px;
-      font-size: 20px;
-      cursor: pointer;
-      margin-top: 10px;
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
-      transition: box-shadow 0.5s ease, transform 0.5s ease; /
+    background-color: #333; /* Dark button background */
+    color: #e0e0e0; /* Light button text */
+    padding: 10px 20px;
+    border: solid;
+    border-width: 1px;
+    border-color: #555; /* Darker button border */
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); 
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
 }
 button:hover {
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
     transform: translateY(-2px); /* Moves button up slightly */
 }
 button:active {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow on button press */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow on button press */
     transform: translateY(0); /* Resets the button position */
 }
-
-.header{
+.header {
     font-size: 2rem;
     padding-bottom: 0px;
     font-weight: bold;
-    color: #333;
-    text-shadow: 0 4px 12px rgb(232, 232, 232);
+    color: #e0e0e0; /* Light header text */
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
     text-align: center;
 }
-.container{
+.container {
     padding: 10px;
-    background-color: rgb(232,226,226);
+    background-color: #121212; /* Dark container background */
 }
-.sub-container{
-    background-color: #ffffff;
+.sub-container {
+    background-color: #1f1f1f; /* Darker sub-container background */
     border-radius: 10px;
     border: solid;
     border-width: 1px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
-.sub-container .row{
+.sub-container .row {
     padding: 10px;
 }
-.sub_head{
-    font-size:1.7rem;
-    margin:0px;
+.sub_head {
+    font-size: 1.7rem;
+    margin: 0px;
     font-weight: 600;
+    color: #e0e0e0; /* Light sub-head text */
 }
-.with_with_out_bonus_container{
+.with_with_out_bonus_container {
     font-size: 1.2rem;
     padding-top: 0;
+    color: #e0e0e0; /* Light text */
 }
-.notice{
-    font-size:1rem;
+.notice {
+    font-size: 1rem;
     text-align: left;
     margin-top: 0px;
+    color: #e0e0e0; /* Light text */
 }
-.mark_container,.extra_activity_container{
+.mark_container, .extra_activity_container {
     padding: 10px;
     font-size: 1.3rem;
+    color: #e0e0e0; /* Light text */
 }
-.input_box{
+.input_box {
     width: 100%;
     border-radius: 5px;
     padding: 0.5px;
     text-align: center;
     font-family: "New Amsterdam";
+    background-color: #2c2c2c; /* Dark input box background */
+    color: #e0e0e0; /* Light input box text */
 }
-#calculate_button,#possible-mark-button{
+#calculate_button, #possible-mark-button {
     width: 150px;
     font-weight: bold;
     padding: 1%;
-    background-color: white; 
-    color: black;
+    background-color: #333; /* Dark button background */
+    color: #e0e0e0; /* Light button text */
     border: solid;
     border-width: 1px;
-    border-color: #000;
+    border-color: #555; /* Darker button border */
     border-radius: 5px;
-    cursor: pointer;   
+    cursor: pointer;
     font-size: 1rem;
     text-align: center;
     border-radius: 3px;
 }
-.result-mark-container{
-    background-color: hsl(0, 0%, 99%);
-    border:solid;
+.result-mark-container {
+    background-color: #1f1f1f; /* Darker result container background */
+    border: solid;
     border-width: 1px;
     padding: 10px;
     border-radius: 10px;
     visibility: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
-.result-mark-header{
+.result-mark-header {
     font-size: 1.2rem;
     font-weight: bold;
+    color: #e0e0e0; /* Light text */
 }
-.result-mark-container .row{
-    padding: 0px;
-}
-.result-mark-container .row .col p{
+.result-mark-container .row .col p {
     font-size: 1.2rem;
     text-align: left;
-    font-weight: 500;   
+    font-weight: 500;
+    color: #e0e0e0; /* Light text */
 }
-/*button styling*/
-
-input,button{
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+input, button {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.5s ease, transform 0.5s ease;
 }
-input:hover,button:hover{
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
-    transform: translateY(-2px); /* Moves button up slightly */
+input:hover, button:hover {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
 }
-
-/*input valid checker*/
-input:focus:valid{
-    color: green;
+input:focus:valid {
+    color: lightgreen;
     box-shadow: 0 0 15px lightgreen, 0 0 25px lightgreen;
 }
-input:focus:invalid{
-    color: red;
+input:focus:invalid {
+    color: tomato;
     box-shadow: 0 0 15px tomato, 0 0 25px tomato;
 }
-input:invalid{
-    color: red;
+input:invalid {
+    color: tomato;
     border-color: tomato;
     border-width: 2px;
     box-shadow: 0 0 15px tomato, 0 0 25px tomato;
 }
-/*checked box styling*/
-input[type="radio"]:checked{
-    background-color: purple;
-    border-color: purple;
-    box-shadow: 0 0 10px purple, 0 0 20px purple;
+input[type="radio"]:checked {
+    background-color: #bb86fc; /* Dark theme checked radio color */
+    border-color: #bb86fc;
+    box-shadow: 0 0 10px #bb86fc, 0 0 20px #bb86fc;
     border-radius: 50%;
 }
-
-
-/*vibaration*/
-@keyframes smoothVibrate {
-    0% { transform: translate(0); }
-    10% { transform: translate(-5px, 5px); }
-    20% { transform: translate(5px, -5px); }
-    30% { transform: translate(-10px, 10px); }
-    40% { transform: translate(10px, -10px); }
-    50% { transform: translate(-15px, 15px); }
-    60% { transform: translate(15px, -15px); }
-    70% { transform: translate(-10px, 10px); }
-    80% { transform: translate(10px, -10px); }
-    90% { transform: translate(-5px, 5px); }
-    100% { transform: translate(0); }
-}
-
 .vibrate {
-    animation: smoothVibrate 1s ease infinite; /* Smooth and gentle vibration */
+    animation: smoothVibrate 1s ease infinite;
 }
-/*celebration animation*/
-#congrs-lottie-animation{
+#congrs-lottie-animation {
     visibility: hidden;
 }
-.initial_alert_container{
+.initial_alert_container {
     background-color: transparent;
     position: absolute;
     z-index: 999;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 }
-.add_width_pc{
+.add_width_pc {
     width: 100%;
     height: 100%;
 }
-.add_width_mobile{
+.add_width_mobile {
     width: 100vh;
     height: 100vh;
-    left:-50%;
+    left: -50%;
 }
 @media (max-width: 768px) {
-    .initial_alert_container_msg{
+    .initial_alert_container_msg {
         width: 350px;
-        left:5%;
+        left: 5%;
     }
 }
